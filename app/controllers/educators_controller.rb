@@ -47,6 +47,10 @@ class EducatorsController < ApplicationController
     redirect_to educators_index_path
   end
 
+  def list
+    @educators = Educator.all
+  end
+
   private
     def educator_params
       params.require(:educator).permit(:name, :expertise,:photo)

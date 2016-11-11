@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Mentor</div>
+
+  <table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Expertise</th>
+        <th></th>
+    </tr>
+    <% @educators.each do |educator| %>
+    <tr>
+        <td><%= educator.name %></td>
+        <td><%= educator.expertise %></td>
+        <td>
+          <%= link_to "Cập nhật", edit_educator_path(educator), class: "btn btn-primary" %>
+          <%= link_to "Xoá hồ sơ", educator_path(educator), class: "btn btn-danger", method: :delete, data: { confirm: "Xoá hồ sơ?"} %>
+        </td>
+    </tr>
+
+    <% end %>
+  </table>
+</div>

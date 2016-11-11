@@ -1,7 +1,34 @@
-<p><%= @educator.name %></p>
-<p><%= @educator.expertise %></p>
-<p><%= image_tag @educator.photo.url(:medium) %></p>
+<section id="about" class="section-content about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <figure class="fig-profile wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+          <%= image_tag @educator.photo.url(:medium), class: "img-responsive img-circle img-profile", alt: @educator.name %>
+          <figcaption>Hello !</figcaption>
+        </figure>
 
-<br />
-<%= link_to "Cập nhật", edit_educator_path(@educator) %>
-<%= link_to "Xoá hồ sơ", educator_path(@educator), method: :delete, data: { confirm: "Xoá hồ sơ?"} %>
+        <div class="clearfix"></div>
+
+        <h2 class="name"><b><%= @educator.name %></b></h2>
+        <h3 class="position"><%= @educator.expertise %></h3>
+        <h4 class="text-center location">Vietnam</h4>
+        <div class="title-divider">
+          <span class="hr-divider col-xs-5"></span>
+          <span class="icon-separator col-xs-2"><i class="fa fa-star"></i></span>
+          <span class="hr-divider col-xs-5"></span>
+        </div>
+
+      </div>
+
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <p class="caption">Introduction </p>
+        <h2 class="slogan">"You are always a student, never a master. You have to keep moving forward." - Conrad Hall</h2>
+        <a href="#" class="btn btn-primary btn-lg">My facebook</a>
+        <a href="#" class="btn btn-info btn-lg">My twitter</a>
+        <a href="#" class="btn btn-danger btn-lg">My google+</a>
+        <a href="#" class="btn btn-success btn-lg">Request Mentorship </a>
+</div>
+</div>
+</div>
+</section>
+
