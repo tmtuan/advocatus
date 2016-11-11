@@ -4,6 +4,12 @@ class EducatorsController < ApplicationController
 
   def index
     @educators = Educator.all
+
+    @searchkey = ''
+    if params[:q] != nil
+      @searchkey = params[:q]
+      @educators = Educator.where('lower(name) LIKE ? OR lower(expertise) LIKE ?',  '%' + @searchkey.downcase + '%',  '%' + @searchkey.downcase + '%')
+    end
   end
 
   def new
@@ -43,7 +49,7 @@ class EducatorsController < ApplicationController
 
   private
     def educator_params
-      params.require(:educator).permit(:name, :expertise)
+      params.require(:educator).permit(:name, :expertise,:photo)
     end
 
     def find_educator

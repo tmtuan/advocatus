@@ -1,8 +1,36 @@
-<h1>Educators#index</h1>
+<div class="board_content">
+<div class="row">
+  <div id="educators" class="transitions-enabled">
+  <% @educators.each do |educator| %>
+        <div class="box">
+          <%= link_to (image_tag educator.photo.url), educator_path(educator) %>
 
-<% @educators.each do |educator| %>
-  <p>
-  <%= link_to educator.name, educator_path(educator) %>
-  </p>
-<% end %>
+        <div class="panel-body name">
+            <%= link_to educator.name, educator_path(educator)%>
+        </div>
+        <div class="tag">
+            <h4><%= educator.expertise %></h4>
+        </div>
+        </div>
+  <% end %>
+  </div>
+</div>
+</div>
 
+<script>
+$(document).ready(function() {
+  return $('#educators').imagesLoaded(function() {
+    return $('#educators').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    });
+
+  });
+});
+
+var keyword = '';
+keyword = '<%= j @searchkey %>';
+if ( keyword != '') {
+  document.getElementById('search_bar').value = keyword;
+}
+</script>

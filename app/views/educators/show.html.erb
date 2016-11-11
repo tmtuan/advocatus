@@ -1,5 +1,6 @@
 <p><%= @educator.name %></p>
 <p><%= @educator.expertise %></p>
+<p><%= image_tag @educator.photo.url(:medium) %></p>
 
 <br />
 <%= link_to "Cập nhật", edit_educator_path(@educator) %>

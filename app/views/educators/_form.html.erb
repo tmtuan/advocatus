@@ -1,6 +1,12 @@
 <%= form_for @educator, html: { multipart: true } do |f| %>
 
     <div class="form-group">
+      <%= f.file_field :photo, :id => 'photo' %>
+    </div>
+
+    <div id="image-holder"></div>
+
+    <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
@@ -13,3 +19,28 @@
     <%= f.submit "Save", :class => 'btn btn-primary' %>
 
 <% end %>
+
+<script>
+  $('#photo').on('change', function() {
+
+    if (typeof (FileReader) != "undefined") {
+      var image_holder = $('#image-holder');
+      image_holder.empty();
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("<img />", {
+          "src": e.target.result,
+          "class": "img-rounded",
+          "width": "300"
+        }).appendTo(image_holder);
+      }
+      image_holder.show();
+      reader.readAsDataURL($(this)[0].files[0]);
+
+    } else {
+
+      alert("This browser does not support FileReader.");
+    }
+  });
+</script>
