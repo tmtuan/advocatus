@@ -1,0 +1,8 @@
+<h1>Educators#index</h1>
+
+<% @educators.each do |educator| %>
+  <p>
+  <%= link_to educator.name, educator_path(educator) %>
+  </p>
+<% end %>
+
