@@ -4,22 +4,25 @@
   <%= devise_error_messages! %>
     <h2>Đăng ký tài khoản</h2>
 
-
     <%= f.label :email, class: 'sr-only'%><br />
     <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Địa chỉ email' %>
-
-
 
     <%= f.label :password, class: 'sr-only' %><br />
     <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Mật khẩu (ít nhất #@minimum_password_length ký tự)" %>
 
 
-
     <%= f.label :password_confirmation, class: 'sr-only' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Nhập lại mật khẩu" %>
 
+    <%
+      @data = [{"name"=>"Learner", "id"=>"1"}, {"name"=>"Mentor", "id"=>"2"}]
+      @data_for_select = @data.each { |hash| [hash['name'], hash['id']] }
 
-  <br />
+    %>
+    <%= f.label :role, class: 'sr-only' %><br />
+    <%= f.select :role, options_for_select([['learner', '1'],['mentor','2']]), {} , class: 'form-control' %>
+
+    <br />
 
     <%= f.submit "Đăng ký", class: 'btn btn-lg btn-info btn-block' %>
 
