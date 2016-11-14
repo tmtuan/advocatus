@@ -53,7 +53,7 @@ class EducatorsController < ApplicationController
 
   private
     def educator_params
-      params.require(:educator).permit(:name, :expertise, :intro, :photo)
+      params.require(:educator).permit(:name, :expertise, :intro, :timetable, :photo)
     end
 
     def find_educator

@@ -3,12 +3,14 @@
 
   <table class="table">
     <tr>
+        <th>Photo</th>
         <th>Name</th>
         <th>Expertise</th>
         <th></th>
     </tr>
     <% @educators.each do |educator| %>
     <tr>
+        <td><%= image_tag educator.photo.url(:thumb) %></td>
         <td><%= educator.name %></td>
         <td><%= educator.expertise %></td>
         <td>
@@ -19,4 +21,6 @@
 
     <% end %>
   </table>
+
 </div>
+<%= link_to "New Mentor", new_educator_path, class: "btn btn-success" %>

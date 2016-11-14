@@ -1,24 +1,34 @@
 <%= form_for @educator, html: { multipart: true } do |f| %>
 
+
     <div class="form-group">
       <%= f.file_field :photo, :id => 'photo' %>
     </div>
 
-    <div id="image-holder"></div>
+    <div id="image-holder">
+      <% if @educator.photo.exists? %>
+      <%= image_tag @educator.photo.url(:medium) %>
+      <% end %>
+    </div>
 
     <div class="form-group">
-      <%= f.label :name %>
+      <%= f.label :name, value: "Họ tên của bạn" %>
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :expertise %>
+      <%= f.label :expertise, value: "Chuyên môn của bạn" %>
       <%= f.text_area :expertise, :class => 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :intro %>
-      <%= f.text_area :intro, :class => 'form-control' %>
+      <%= f.label :intro, value: "Bạn vui lòng giới thiệu sơ lược về mình" %>
+      <%= f.text_area :intro, :class => 'form-control', :rows => '6' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :timetable, value: "Thời gian nào bạn có thể tham gia hỗ trợ sinh viên được?" %>
+      <%= f.text_area :timetable, :class => 'form-control' %>
     </div>
 
     <%= f.submit "Save", :class => 'btn btn-primary' %>
