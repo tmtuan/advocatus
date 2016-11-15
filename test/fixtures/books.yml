@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  learnerid: 1
+  mentorid: 1
+  date: 2016-11-15
+  time: 2016-11-15 11:02:12
+
+two:
+  learnerid: 1
+  mentorid: 1
+  date: 2016-11-15
+  time: 2016-11-15 11:02:12
