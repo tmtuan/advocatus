@@ -49,6 +49,7 @@ class EducatorsController < ApplicationController
 
   def upvote
     @educator.upvote_by current_user
+    redirect_to educators_index_path
 
   end
 
