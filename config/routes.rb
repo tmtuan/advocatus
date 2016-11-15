@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :educators, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :educators, only: [:index, :show]
+  resources :educators, only: [:index, :show] do
+    member do
+     put 'like', to: 'educators#upvote'
+    end
+   end
 
   get 'mentor_list', to:'educators#list'
   get 'mentorship', to:'educators#request_mentorship'

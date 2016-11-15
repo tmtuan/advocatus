@@ -7,6 +7,10 @@
 
         <div class="panel-body name">
             <%= link_to educator.name, educator_path(educator)%>
+            <%= link_to like_educator_path(educator), method: :put, class: 'btn btn-default' do %>
+              <span class="glyphicon glyphicon-heart"></span>
+              <%= educator.get_upvotes.size %>
+            <% end %>
         </div>
         <div class="tag">
             <h4><%= educator.expertise %></h4>

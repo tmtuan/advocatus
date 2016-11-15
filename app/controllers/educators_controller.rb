@@ -1,6 +1,6 @@
 class EducatorsController < ApplicationController
 
-  before_action :find_educator, only: [:show, :edit, :update, :destroy]
+  before_action :find_educator, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @educators = Educator.all
@@ -45,6 +45,11 @@ class EducatorsController < ApplicationController
   def destroy
     @educator.destroy
     redirect_to educators_index_path
+  end
+
+  def upvote
+    @educator.upvote_by current_user
+
   end
 
   def list
