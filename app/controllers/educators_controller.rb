@@ -51,6 +51,10 @@ class EducatorsController < ApplicationController
     @educators = Educator.all
   end
 
+  def request_mentorship
+    @educator = Educator.find(params[:educator])
+  end
+
   private
     def educator_params
       params.require(:educator).permit(:name, :expertise, :intro, :timetable, :photo)

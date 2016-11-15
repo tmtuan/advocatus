@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :educators, only: [:index, :show]
 
   get 'mentor_list', to:'educators#list'
+  get 'mentorship', to:'educators#request_mentorship'
 
 end
