@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <h1>Say Hello</h1>
+
+  <div class="form-group">
+    <%= form_for @contact do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', required: 'true' %>
+
+        <br>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', required: 'true' %>
+
+        <br>
+
+        <%= f.label :message %>
+        <%= f.text_area :message, class: 'form-control', as: :text %>
+
+        <br>
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, class: 'form-control', hint: 'leave this field blank' %>
+
+        <br>
+        <%= f.submit 'Send Message', class: 'btn btn-success' %>
+
+
+    <% end %>
+
+  </div>
+</div>

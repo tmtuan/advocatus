@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get 'mentor_list', to:'educators#list'
   get 'mentorship', to:'educators#request_mentorship'
 
+
+  resources :contacts, only: [:new, :create]
 end
