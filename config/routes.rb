@@ -24,4 +24,11 @@ Rails.application.routes.draw do
 
 
   resources :contacts, only: [:new, :create]
+
+  resources :profiles, only: [:show, :edit, :update]
+
+  namespace :api, :defaults => {:format => :json} do
+    get 'educators',      to: 'educators#index'
+  end
+
 end

@@ -38,6 +38,8 @@ gem 'mail_form', '~> 1.6'
 
 gem 'sendgrid-ruby'
 
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
